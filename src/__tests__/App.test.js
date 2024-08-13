@@ -4,45 +4,43 @@ import '@testing-library/jest-dom';
 import App from "../App";
 describe("Portfolio Page", () => {
   test("displays a top-level heading with the text `Hi, I'm _______`", () => {
-    // Arrange
+    
     render(<App />);
 
-    // Act
+
     const topLevelHeading = screen.getByRole("heading", {
       name: /hi, i'm/i,
       exact: false,
       level: 1,
     });
 
-    // Assert
+ 
     expect(topLevelHeading).toBeInTheDocument();
   });
 
   test("displays an image with alt text", () => {
-    // Arrange
+
     render(<App />);
 
-    // Act
+
     const profileImage = screen.getByAltText(/profile picture/i);
 
-    // Assert
+
     expect(profileImage).toBeInTheDocument();
     expect(profileImage).toHaveAttribute("src");
   });
 
   test("displays a second-level heading with the text `About Me`", () => {
-    // Arrange
+
     render(<App />);
 
-    // Act
+
     const aboutMeHeading = screen.getByRole("heading", {
       name: /about me/i,
       exact: false,
       level: 2,
     });
-
-    // Assert
-    expect(aboutMeHeading).toBeInTheDocument();
+   expect(aboutMeHeading).toBeInTheDocument();
   });
 
   test("displays a paragraph for the biography", () => {
